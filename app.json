@@ -1,11 +1,14 @@
 {
   "expo": {
     "name": "hi-score-receiver",
-    "description": "A very interesting project.",
+    "description": "Money20/20 Hackathon Client",
     "slug": "hi-score-receiver",
     "privacy": "public",
     "sdkVersion": "30.0.0",
-    "platforms": ["ios", "android"],
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
