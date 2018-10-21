@@ -6,6 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import ImproveScoreScreen from '../screens/ImproveScoreScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -53,8 +54,22 @@ SettingsStack.navigationOptions = {
   ),
 };
 
+const ImproveScoreStack = createStackNavigator({
+  ImproveScore: ImproveScoreScreen,
+});
+
+ImproveScoreStack.navigationOptions = {
+  tabBarLabel: 'Improve score',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={'md-arrow-round-up'}
+    />
+  ),
+};
+
 export default createBottomTabNavigator({
   HomeStack,
   CashStack,
-  // SettingsStack,
+  ImproveScoreStack,
 });

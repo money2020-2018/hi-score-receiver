@@ -41,7 +41,7 @@ export default class PiggyScreen extends React.Component {
       color: 'red',
       color: change >= 0 ? 'green' : 'red',
     };
-    const amount = this.props.navigation.state.params.amount || 0;
+    const amount = (this.props.navigation.state.params || {}).amount || 0;
 
     return (
       <View style={styles.container}>

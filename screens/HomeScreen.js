@@ -26,7 +26,7 @@ export default class HomeScreen extends React.Component {
 
   componentDidMount () {
     setInterval(() => {
-      fetch('https://582c3fce.ngrok.io/balance').then((payload) => {
+      fetch('http://10.42.0.114:5000/balance').then((payload) => {
         return payload.json();
     }).then((payload) => {
         const { navigate } = this.props.navigation;
@@ -37,7 +37,9 @@ console.log('wtf', balance)
           this.setState({allowance: balance});
           navigate('Links', {amount: balance});
         }
-      })
+      }).catch((e) => {
+        // do nothing
+      });
     }, 1000);
   }
 
