@@ -56,7 +56,7 @@ console.log('wtf', balance)
 
         <View style={styles.quicktip}>
           <ProText style={{fontSize: 20, marginBottom: 10}}>Quick tip</ProText>
-          <ProText>Your credit score is shown here and is based on your connected accounts.</ProText>
+          <Text style={{}}>Your credit score is shown here and is based on your connected accounts.</Text>
         </View>
 
         <View style={styles.score}>
@@ -70,7 +70,7 @@ console.log('wtf', balance)
           <ProText style={{fontSize: 24}}>Share my score!</ProText>
         </View>
 
-        <Text>Credit score algorithm is similar to actual FICO scoring and is only for information purposes.</Text>
+        <Text style={{ fontStyle: 'italic' }}>Credit score algorithm is similar to actual FICO scoring and is only for information purposes.</Text>
 
         <View style={{flex: 1}}>
         </View>
@@ -78,7 +78,7 @@ console.log('wtf', balance)
         <View style={{}}>
           <Image
             resizeMode="contain"
-            style={{width: '100%', height: 165}}
+            style={{width: '100%', height: 148}}
             source={require('../assets/images/graph.png')}
           />
         </View>
@@ -95,8 +95,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 15,
-    paddingTop: 30,
+    paddingTop: 60,
     backgroundColor: '#fff',
+    paddingBottom: 0,
   },
   quicktip: {
     marginVertical: 10,
@@ -104,6 +105,7 @@ const styles = StyleSheet.create({
     width: '100%',
     borderRadius: 8,
     padding: 20,
+    marginTop: 30,
   },
   share: {
     marginVertical: 10,

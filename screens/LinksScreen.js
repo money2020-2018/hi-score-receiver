@@ -49,7 +49,7 @@ export default class PiggyScreen extends React.Component {
 
         <View style={styles.quicktip}>
           <ProText style={{ fontSize: 20, marginBottom: 10 }}>Quick tip</ProText>
-          <ProText>Rewards are based on your daily achievements. Keep up the good work and get rewarded.</ProText>
+          <Text>Rewards are based on your daily achievements. Keep up the good work and get rewarded.</Text>
         </View>
 
         <View style={styles.score}>
@@ -58,15 +58,15 @@ export default class PiggyScreen extends React.Component {
           </OpenText>
         </View>
 
-        <Text>Credit score algorithm is similar to actual FICO scoring and is only for information purposes.</Text>
+        <Text style={{fontStyle:'italic'}}>Credit score algorithm is similar to actual FICO scoring and is only for information purposes.</Text>
 
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, height: 100}}>
         </View>
 
         <View style={{}}>
           <Image
             resizeMode="contain"
-            style={{ width: '100%', height: 165 }}
+            style={{ width: '100%', height: 147}}
             source={require('../assets/images/graph.png')}
           />
         </View>
@@ -79,7 +79,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 15,
-    paddingTop: 30,
+    paddingTop: 60,
+    paddingBottom: 0,
     backgroundColor: '#fff',
   },
   score: {
@@ -103,5 +104,6 @@ const styles = StyleSheet.create({
     width: '100%',
     borderRadius: 8,
     padding: 20,
+    marginTop: 30,
   },
 });
