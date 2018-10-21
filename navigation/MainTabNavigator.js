@@ -18,23 +18,23 @@ HomeStack.navigationOptions = {
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
+          ? `ios-heart${focused ? '' : '-outline'}`
+          : 'md-heart'
       }
     />
   ),
 };
 
-const LinksStack = createStackNavigator({
+const CashStack = createStackNavigator({
   Links: LinksScreen,
 });
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+CashStack.navigationOptions = {
+  tabBarLabel: 'Piggy',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link'}
+      name={Platform.OS === 'ios' ? `ios-cash${focused ? '' : '-outline'}` : 'md-cash'}
     />
   ),
 };
@@ -55,6 +55,6 @@ SettingsStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
-  LinksStack,
-  SettingsStack,
+  // CashStack,
+  // SettingsStack,
 });

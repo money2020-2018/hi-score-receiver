@@ -1,14 +1,29 @@
 import React from 'react';
-import { ExpoConfigView } from '@expo/samples';
+import {
+  Image,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import { CreditCardInput, LiteCreditCardInput } from "react-native-credit-card-input";
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
     title: 'app.json',
   };
 
+  _onChange = () => {
+
+  }
+
   render() {
-    /* Go ahead and delete ExpoConfigView and replace it with your
-     * content, we just wanted to give you a quick view of your config */
-    return <ExpoConfigView />;
+    return (
+      <View>
+        <CreditCardInput onChange={this._onChange} />
+      </View>
+    )
   }
 }

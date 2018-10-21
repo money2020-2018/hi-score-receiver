@@ -1,18 +1,42 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
+import { ScrollView, StyleSheet, Image, Text } from 'react-native';
+import currency from 'currency.js';
 
-export default class LinksScreen extends React.Component {
+import { ProText } from '../components/StyledText';
+
+const USD = (value) => currency(value, { symbol: "$", precision: 2 }).format(true);
+const diff = (value) => currency(value, { precision: 2 }).format();
+
+export default class PiggyScreen extends React.Component {
   static navigationOptions = {
-    title: 'Links',
+    header: null,
   };
 
+  constructor (props) {
+    super(props);
+
+    this.state = {
+      balance: 100,
+      change: 10.56,
+    };
+  }
+
   render() {
+    const { balance, change } = this.state;
+    const changeStyle = {
+      marginLeft: 12,
+      fontSize: 32,
+      color: 'red',
+      color: change >= 0 ? 'green' : 'red',
+    };
+
     return (
-      <ScrollView style={styles.container}>
-        {/* Go ahead and delete ExpoLinksView and replace it with your
-           * content, we just wanted to provide you with some helpful links */}
-        <ExpoLinksView />
+      <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+        <Image style={{ flex: 1 }} source={require('../assets/images/piggy.jpg')} />
+        <ProText style={styles.balance}>
+          {USD(balance)}
+          <ProText style={changeStyle}> {change >= 0 && '+'}{diff(change)}</ProText>
+        </ProText>
       </ScrollView>
     );
   }
@@ -24,4 +48,15 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     backgroundColor: '#fff',
   },
+  content: {
+    alignItems: 'center',
+  },
+  balance: {
+    fontSize: 48,
+  },
+  change: {
+    marginLeft: 12,
+    fontSize: 32,
+    color: 'red',
+  }
 });
