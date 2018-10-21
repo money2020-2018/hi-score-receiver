@@ -20,8 +20,25 @@ export default class HomeScreen extends React.Component {
     this.state = {
       multiplier: 1,
       cash: 5.20,
-      allowance: 5,
+      allowance: 0,
     }
+  }
+
+  componentDidMount () {
+    setInterval(() => {
+      fetch('https://582c3fce.ngrok.io/balance').then((payload) => {
+        return payload.json();
+    }).then((payload) => {
+        const { navigate } = this.props.navigation;
+        const { balance } = payload;
+console.log('wtf', balance)
+        if (balance !== 0 && balance !== this.state.allowance) {
+          console.log('weee', balance)
+          this.setState({allowance: balance});
+          navigate('Links', {amount: balance});
+        }
+      })
+    }, 1000);
   }
 
   static navigationOptions = {

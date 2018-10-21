@@ -32,6 +32,8 @@ export default class PiggyScreen extends React.Component {
   }
 
   render() {
+    console.log(this.props.navigation.state);
+
     const { balance, change } = this.state;
     const changeStyle = {
       marginLeft: 12,
@@ -39,6 +41,7 @@ export default class PiggyScreen extends React.Component {
       color: 'red',
       color: change >= 0 ? 'green' : 'red',
     };
+    const amount = this.props.navigation.state.params.amount || 0;
 
     return (
       <View style={styles.container}>
@@ -51,7 +54,7 @@ export default class PiggyScreen extends React.Component {
 
         <View style={styles.score}>
           <OpenText style={{ color: '#003ea9', fontSize: 45 }}>
-            $20
+            ${amount || 0}
           </OpenText>
         </View>
 
