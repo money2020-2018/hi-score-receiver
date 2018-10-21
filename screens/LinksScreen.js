@@ -1,8 +1,18 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Image, Text } from 'react-native';
-import currency from 'currency.js';
+import {
+  Image,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  Button,
+} from 'react-native';
+import Icon from '../components/Icon';
 
-import { ProText } from '../components/StyledText';
+import { ProText, OpenText } from '../components/StyledText';
+import currency from 'currency.js';
 
 const USD = (value) => currency(value, { symbol: "$", precision: 2 }).format(true);
 const diff = (value) => currency(value, { precision: 2 }).format();
@@ -31,13 +41,33 @@ export default class PiggyScreen extends React.Component {
     };
 
     return (
-      <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-        <Image style={{ flex: 1 }} source={require('../assets/images/piggy.jpg')} />
-        <ProText style={styles.balance}>
-          {USD(balance)}
-          <ProText style={changeStyle}> {change >= 0 && '+'}{diff(change)}</ProText>
-        </ProText>
-      </ScrollView>
+      <View style={styles.container}>
+        <ProText style={{ fontSize: 34 }}>My rewards</ProText>
+
+        <View style={styles.quicktip}>
+          <ProText style={{ fontSize: 20, marginBottom: 10 }}>Quick tip</ProText>
+          <ProText>Rewards are based on your daily achievements. Keep up the good work and get rewarded.</ProText>
+        </View>
+
+        <View style={styles.score}>
+          <OpenText style={{ color: '#003ea9', fontSize: 45 }}>
+            $20
+          </OpenText>
+        </View>
+
+        <Text>Credit score algorithm is similar to actual FICO scoring and is only for information purposes.</Text>
+
+        <View style={{ flex: 1 }}>
+        </View>
+
+        <View style={{}}>
+          <Image
+            resizeMode="contain"
+            style={{ width: '100%', height: 165 }}
+            source={require('../assets/images/graph.png')}
+          />
+        </View>
+      </View>
     );
   }
 }
@@ -45,8 +75,13 @@ export default class PiggyScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 15,
+    padding: 15,
+    paddingTop: 30,
     backgroundColor: '#fff',
+  },
+  score: {
+    // flex: 1,
+    alignItems: 'center',
   },
   content: {
     alignItems: 'center',
@@ -58,5 +93,12 @@ const styles = StyleSheet.create({
     marginLeft: 12,
     fontSize: 32,
     color: 'red',
-  }
+  },
+  quicktip: {
+    marginVertical: 10,
+    backgroundColor: '#e6e6eb',
+    width: '100%',
+    borderRadius: 8,
+    padding: 20,
+  },
 });

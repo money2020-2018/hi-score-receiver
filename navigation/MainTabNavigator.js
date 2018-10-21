@@ -12,7 +12,7 @@ const HomeStack = createStackNavigator({
 });
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+  tabBarLabel: 'My score',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -30,11 +30,11 @@ const CashStack = createStackNavigator({
 });
 
 CashStack.navigationOptions = {
-  tabBarLabel: 'Piggy',
+  tabBarLabel: 'My rewards',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? `ios-cash${focused ? '' : '-outline'}` : 'md-cash'}
+      name={Platform.OS === 'ios' ? `ios-star${focused ? '' : '-outline'}` : 'md-star'}
     />
   ),
 };
@@ -55,6 +55,6 @@ SettingsStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
-  // CashStack,
+  CashStack,
   // SettingsStack,
 });
